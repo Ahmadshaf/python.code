@@ -4,9 +4,14 @@ from flask import Flask, render_template_string, request, jsonify
 import stripe
 
 app = Flask(__name__)
+# app.py içindeki o satırı bulun ve bu şekilde güncelleyin:
+import os
+
+# Doğrudan anahtarı yazmak yerine çevresel değişkenden okumasını sağlıyoruz
+stripe.api_key = "GECICI_ANAHTAR"
 
 # Kendi Stripe test anahtarını buraya yapıştırmayı unutma dostum!
-stripe.api_key = "sk_test_51TfHDXAw4wMz3BYMnqq1QwWJBCtHXX03UD58SFcsI3prcHDnvPpqgany2o56o7FV1wMgH1PWlGMdbOsJkQZKMnzx00QW2DUpvH"
+
 MENU = {
     # --- Çorbalar ---
     "c1": {"ad": "Ezogelin Çorbası", "fiyat": 80, "img": "https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?w=200", "detay": "Bol naneli ve limonlu geleneksel lezzet."},
